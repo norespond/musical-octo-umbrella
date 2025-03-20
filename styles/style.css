@@ -1,79 +1,104 @@
-
 body {
-    font-family: sans-serif;
+    /* 其他样式 */
+    background-image: url('../旭光.jpg');
+    /* 替换为您的图片文件名 */
+    background-size: cover;
+    /* 图片覆盖整个背景 */
+    background-repeat: no-repeat;
+    /* 图片不重复 */
+    background-attachment: fixed;
+    /* 背景固定，不随滚动条滚动 */
+    color: #e0e0e0;
+    /* 设置文字颜色为浅灰色，与冷色调背景形成对比 */
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #f0f0f0;
-    padding: 20px;
-    text-align: center;
+    background-color: rgba(30, 40, 60, 0.8);
+    /* 设置头部背景为深蓝色，带有一定的透明度 */
+    color: #fff;
+    /* 设置头部文字颜色为白色 */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
 }
 
 nav ul {
     list-style: none;
+    display: flex;
+    margin: 0;
     padding: 0;
 }
 
 nav li {
-    display: inline;
-    margin: 0 15px;
+    margin-left: 20px;
 }
 
 nav a {
+    color: #a0b0c0;
+    /* 设置导航链接颜色为浅蓝色 */
     text-decoration: none;
-    color: #333;
+}
+
+nav a:hover {
+    color: #c0d0e0;
+    /* 设置导航链接鼠标悬停时的颜色 */
 }
 
 main {
+    flex: 1;
     padding: 20px;
 }
 
-section {
-    margin-bottom: 40px;
+footer {
+    background-color: rgba(30, 40, 60, 0.8);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    width: 100%;
 }
 
 .collection-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.collection-item {
-    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    /* 每行两列 */
+    gap: 10px;
+    /* 图片之间的间距 */
 }
 
 .collection-item img {
-    max-width: 100%;
+    width: 100%;
+    /* 图片宽度占满父元素 */
     height: auto;
+    /* 高度自动调整 */
+    display: block;
 }
 
-footer {
-    background-color: #f0f0f0;
-    padding: 10px;
-    text-align: center;
+@media (max-width: 768px) {
+    .collection-grid {
+        grid-template-columns: 1fr;
+        /* 小屏幕上显示一列 */
+    }
 }
 
-/* 音乐部分样式 */
-.music-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+nav a[href="index.html"] {
+    color: #ff6600;
+    /* 返回主页链接的特殊颜色 */
+    font-weight: bold;
+    /* 加粗字体 */
 }
 
-.music-item {
-    width: 300px;
-    text-align: center;
-}
-
-.music-item img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* 图片部分样式 */
-#images .collection-grid {
-    grid-template-columns: repeat(2, 1fr);
+.aplayer {
+    background-color: rgba(57, 108, 219, 0.1);
+    /* 添加透明度 */
 }
