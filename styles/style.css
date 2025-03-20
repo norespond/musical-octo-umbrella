@@ -1,21 +1,27 @@
 body {
     /* 其他样式 */
     background-image: url('../旭光.jpg');
-    /* 替换为您的图片文件名 */
+    /* 替换为您的桌面端图片文件名 */
     background-size: cover;
-    /* 图片覆盖整个背景 */
     background-repeat: no-repeat;
-    /* 图片不重复 */
     background-attachment: fixed;
-    /* 背景固定，不随滚动条滚动 */
     color: #e0e0e0;
-    /* 设置文字颜色为浅灰色，与冷色调背景形成对比 */
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
+
+/* 添加媒体查询，针对小屏幕设备 */
+@media (max-width: 768px) {
+    body {
+        background-image: url('../白花.jpg');
+        /* 替换为您的手机端图片文件名 */
+    }
+}
+
+/* 其他样式 */
 
 header {
     background-color: rgba(30, 40, 60, 0.8);
@@ -101,4 +107,44 @@ nav a[href="index.html"] {
 .aplayer {
     background-color: rgba(57, 108, 219, 0.1);
     /* 添加透明度 */
+}
+
+.zoomable-image {
+    cursor: pointer;
+    /* 将鼠标指针设置为手型 */
+    transition: transform 0.3s ease;
+    /* 添加过渡效果 */
+}
+
+/* 图片放大效果 */
+.zoomable-image.zoomed {
+    transform: scale(1.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    z-index: 10;
+    max-width: 50%;
+    /* 调整为 50% */
+    max-height: 50%;
+    /* 调整为 50% */
+    object-fit: contain;
+    /* 保持图片宽高比，并缩放图片以适应容器 */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 调整为 100% */
+    height: 100%;
+    /* 调整为 100% */
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9;
+    display: none;
+}
+
+.overlay.show {
+    display: block;
 }
