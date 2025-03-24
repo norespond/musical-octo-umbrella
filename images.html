@@ -6,26 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的图片收藏</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <style>
-        .grid {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            /* 允许换行 */
-        }
-
-        .grid-item {
-            width: 50%;
-            /* 每项宽度为 50%，即每行两项 */
-            padding: 5px;
-            box-sizing: border-box;
-        }
-
-        .grid-item img {
-            display: block;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/ige.css">
 </head>
 
 <body>
@@ -38,29 +19,19 @@
         </nav>
     </header>
     <main>
-        <div class="grid">
-            <div class="grid-item">
-                <img src="images/29e89427435a414189d48f4b7d3f9f19.jpg" alt="图片1" class="zoomable-image">
-            </div>
-            <div class="grid-item">
-                <img src="images/119072743_p0_scale.png" alt="图片2" class="zoomable-image">
-            </div>
-            <div class="grid-item">
-                <img src="images/angel_girl_wings_993751_2560x1440.jpg" alt="图片3" class="zoomable-image">
-            </div>
-            <div class="grid-item">
-                <img src="images/girl_sakura_flowers_834295_2560x1440.jpg" alt="图片4" class="zoomable-image">
-            </div>
+        <div id="image-grid" class="grid">
+            <!-- 图片列表 -->
+        </div>
+        <div id="image-overlay" class="overlay">
+            <span class="close-btn">&times;</span>
+            <img id="overlay-img" class="overlay-img" />
+            <a id="download-btn" class="download-btn" href="#" download>下载图片</a>
         </div>
 
-        <body>
-            <div class="overlay"></div>
-        </body>
-    </main>
-    <script src="./scripts/script.js"></script>
-    <footer>
-        <p>&copy; 2024 我的收藏</p>
-    </footer>
+        <script src="./scripts/image.js"></script>
+        <footer>
+            <p>&copy; 2024 我的收藏</p>
+        </footer>
 </body>
 
 </html>

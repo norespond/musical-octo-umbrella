@@ -90,13 +90,6 @@ footer {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .collection-grid {
-        grid-template-columns: 1fr;
-        /* 小屏幕上显示一列 */
-    }
-}
-
 nav a[href="index.html"] {
     color: #ff6600;
     /* 返回主页链接的特殊颜色 */
@@ -116,35 +109,30 @@ nav a[href="index.html"] {
     /* 添加过渡效果 */
 }
 
-/* 图片放大效果 */
-.zoomable-image.zoomed {
-    transform: scale(1.5);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
-    z-index: 10;
-    max-width: 50%;
-    /* 调整为 50% */
-    max-height: 50%;
-    /* 调整为 50% */
-    object-fit: contain;
-    /* 保持图片宽高比，并缩放图片以适应容器 */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    /* 调整主内容和侧边栏的宽度比例 */
+    gap: 20px;
+    /* 设置间距 */
 }
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* 调整为 100% */
-    height: 100%;
-    /* 调整为 100% */
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9;
-    display: none;
+aside {
+    background-color: rgba(30, 40, 60, 0.8);
+    /* 设置侧边栏背景颜色 */
+    padding: 20px;
+    color: #e0e0e0;
 }
 
-.overlay.show {
-    display: block;
+/* 移动端样式 */
+@media (max-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        /* 移动端显示单列 */
+    }
+
+    aside {
+        order: 2;
+        /* 移动端显示在底部 */
+    }
 }
