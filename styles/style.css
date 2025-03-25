@@ -74,20 +74,72 @@ footer {
     width: 100%;
 }
 
-.collection-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* 每行两列 */
-    gap: 10px;
-    /* 图片之间的间距 */
+/* 单列图片布局 */
+.single-column-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.collection-item img {
-    width: 100%;
-    /* 图片宽度占满父元素 */
+/* 图片样式 */
+.clickable-image {
+    width: 700px;
+    /* 固定宽度 */
     height: auto;
-    /* 高度自动调整 */
+    /* 高度自适应 */
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.clickable-image:hover {
+    transform: scale(1.05);
+}
+
+.download-button:hover {
+    background-color: #e68900;
+}
+
+/* 🔍 模态框放大图片 */
+#image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#modal-image {
+    width: 100%;
+    height: auto;
     display: block;
+    border-radius: 10px;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+#close-modal:hover {
+    color: red;
 }
 
 nav a[href="index.html"] {
@@ -109,30 +161,107 @@ nav a[href="index.html"] {
     /* 添加过渡效果 */
 }
 
-.content-wrapper {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    /* 调整主内容和侧边栏的宽度比例 */
-    gap: 20px;
-    /* 设置间距 */
+/* 布局调整：使用 Flexbox 让侧边栏和内容区并排 */
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
-aside {
-    background-color: rgba(30, 40, 60, 0.8);
-    /* 设置侧边栏背景颜色 */
+/* 左侧公告与留言栏 */
+#sidebar {
+    width: 30%;
+    height: 100vh;
+    /* 侧边栏占满整个视口高度 */
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    /* 允许滚动 */
+}
+
+/* 右侧主内容区 */
+#main-content {
+    width: 70%;
     padding: 20px;
-    color: #e0e0e0;
+    overflow-x: hidden;
 }
 
-/* 移动端样式 */
-@media (max-width: 768px) {
-    .content-wrapper {
-        grid-template-columns: 1fr;
-        /* 移动端显示单列 */
-    }
+/* 聊天窗口整体布局 */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    /* 固定高度 */
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+}
 
-    aside {
-        order: 2;
-        /* 移动端显示在底部 */
-    }
+/* 聊天消息列表 */
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    /* 允许滚动 */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 320px;
+    /* 限制最大高度 */
+}
+
+/* 单条消息样式 */
+.chat-message {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+/* 用户消息（右对齐，蓝色气泡） */
+.chat-message.user {
+    align-self: flex-end;
+    background: #4a90e2;
+    color: white;
+}
+
+/* 访客消息（左对齐，灰色气泡） */
+.chat-message.guest {
+    align-self: flex-start;
+    background: #e0e0e0;
+    color: black;
+}
+
+/* 聊天输入框 */
+#chat-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#message-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+}
+
+/* 发送按钮 */
+#send-button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #ff9800;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#send-button:hover {
+    background-color: #e68900;
 }

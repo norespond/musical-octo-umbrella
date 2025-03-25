@@ -1,41 +1,64 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的收藏</title>
+    <title>主页</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./favicon.ico">
 </head>
 
 <body>
     <header>
-        <h1>我的收藏</h1>
+        <h1>欢迎来到我的主页</h1>
         <nav>
             <ul>
+                <li><a href="index.html">主页</a></li>
                 <li><a href="music.html">音乐</a></li>
                 <li><a href="images.html">图片</a></li>
-                <li><a href="#about">关于本站</a></li>
             </ul>
         </nav>
     </header>
-    <div class="content-wrapper">
-        <main>
 
-        </main>
-        <aside id="about">
-            <h2>关于本站</h2>
-            <p>
-                欢迎来到我的个人作品分享站。
-                本站所展示的音乐和绘画作品，均为我个人从网络收集而来，仅出于个人爱好进行分享。
-                我希望通过这个平台，记录和分享我所喜爱的作品，与同样热爱这些作品的朋友交流。
-            </p>
+    <div class="container">
+        <!-- 左侧公告和留言栏 -->
+        <aside id="sidebar">
+            <h2>公告栏</h2>
+            <p>暂无公告</p>
+            <div id="chat-container">
+                <div id="chat-messages">
+                    <!-- 消息内容将通过 JavaScript 动态添加 -->
+                </div>
+                <div id="chat-input">
+                    <input type="text" id="message-input" placeholder="输入消息...">
+                    <button id="send-button">发送</button>
+                </div>
+            </div>
         </aside>
+
+        <!-- 右侧最新图片和其他内容 -->
+        <main>
+            <section id="latest-images">
+                <h2>最新图片</h2>
+                <div id="latest-images-container" class="grid"></div>
+            </section>
+        </main>
+        <!-- 📌 放大图片模态框 -->
+        <div id="image-modal" onclick="closeModal()">
+            <div id="modal-content">
+                <span id="close-modal" onclick="closeModal()">×</span>
+                <img id="modal-image" src="" alt="放大图片">
+            </div>
+        </div>
+
     </div>
+
     <footer>
-        <p>本站所有内容均来源于网络，仅供个人欣赏和学习交流，请勿用于商业用途。如有侵权，请联系我删除。</p>
-        <p>&copy; 2024 我的收藏</p>
+        <p>&copy; 2025 个人主页</p>
     </footer>
+
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>

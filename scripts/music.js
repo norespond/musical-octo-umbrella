@@ -9,7 +9,7 @@ const ap = new APlayer({
     volume: 0.7,
     mutex: true,
     listFolded: false,
-    listMaxHeight: 90,
+    listMaxHeight: "720px",
     audio: [
         {
             name: '春花彼方',
