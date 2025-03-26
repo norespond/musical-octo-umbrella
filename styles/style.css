@@ -1,3 +1,5 @@
+/* 📌 让 html 也应用背景 */
+html,
 body {
     /* 其他样式 */
     background-image: url('../旭光.jpg');
@@ -11,14 +13,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-/* 添加媒体查询，针对小屏幕设备 */
-@media (max-width: 768px) {
-    body {
-        background-image: url('../白花.jpg');
-        /* 替换为您的手机端图片文件名 */
-    }
 }
 
 /* 其他样式 */
