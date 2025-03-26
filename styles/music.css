@@ -81,11 +81,6 @@ nav a[href="index.html"] {
     /* 加粗字体 */
 }
 
-.aplayer {
-    background-color: rgba(57, 108, 219, 0.1);
-    /* 添加透明度 */
-}
-
 .zoomable-image {
     cursor: pointer;
     /* 将鼠标指针设置为手型 */
